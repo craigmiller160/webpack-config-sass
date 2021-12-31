@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { postCssLoader } = require('@craigmiller160/postcss-config');
-const { isProduction } = require('./utils/nodeEnvCheck');
+const { isProduction, isDevelopment } = require('./utils/nodeEnvCheck');
 
 const loaders = (isCssModule) => ([
     isProduction() ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -9,7 +9,7 @@ const loaders = (isCssModule) => ([
         options: {
             importLoaders: isProduction() ? 3 : 2,
             modules: isCssModule,
-            sourceMap: isProduction()
+            sourceMap: isDevelopment()
         }
     },
     isProduction() ? postCssLoader : null,
@@ -17,7 +17,7 @@ const loaders = (isCssModule) => ([
     {
         loader: 'sass-loader',
         options: {
-            sourceMap: isProduction()
+            sourceMap: isDevelopment()
         }
     }
 ].filter((loader) => loader));

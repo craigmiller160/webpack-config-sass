@@ -9,6 +9,10 @@
   "scripts": {
     "build": "echo 'No build required'"
   },
+  "files": [
+    "webpack.config.js",
+    "utils/*"
+  ],
   "dependencies": {
     "@craigmiller160/postcss-config": "^1.0.0-beta.1",
     "sass": "^1.45.2",

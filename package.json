@@ -8,5 +8,15 @@
   },
   "scripts": {
     "build": "echo 'No build required'"
+  },
+  "dependencies": {
+    "@craigmiller160/postcss-config": "^1.0.0-beta.1",
+    "sass-loader": "^12.4.0"
+  },
+  "peerDependencies": {
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0"
   }
 }

@@ -13,7 +13,14 @@ const loaders = (isCssModule) => ([
         }
     },
     isProduction() ? postCssLoader : null,
-    'resolve-url-loader',
+    {
+        loader: 'resolve-url-loader',
+        options: {
+            sourceMap: isDevelopment(),
+            // It spams warnings about missing sourcemaps in prod build, suppressing them for now
+            silent: isProduction()
+        }
+    },
     {
         loader: 'sass-loader',
         options: {
